@@ -313,7 +313,7 @@ info_turtle.goto(info_box_x - info_box_width/2, info_box_y - info_box_height/2)
 info_turtle.pendown()
 info_turtle.fillcolor("#E3F2FD")
 info_turtle.begin_fill()
-for _ in range(2):
+for i in range(2):
     info_turtle.forward(info_box_width)
     info_turtle.left(90)
     info_turtle.forward(info_box_height)
@@ -325,7 +325,7 @@ info_turtle.goto(info_box_x - info_box_width/2, info_box_y - info_box_height/2)
 info_turtle.pendown()
 info_turtle.pencolor("#1976D2")
 info_turtle.pensize(2)
-for _ in range(2):
+for i in range(2):
     info_turtle.forward(info_box_width)
     info_turtle.left(90)
     info_turtle.forward(info_box_height)
@@ -362,7 +362,7 @@ def on_click(x, y):
     if delta_l <= r:
         text_turtle.clear()
         bg_turtle.clear()
-        draw_text_background(bg_turtle, x, y, 140, 35, "#E8F5E9")
+
         text_turtle.penup()
         text_turtle.goto(x, y)
         text_turtle.dot(7, "green")
@@ -429,10 +429,8 @@ for i in goc_mt:
 ax.scatter([x0], [y0], [0], color='red', s=100, label=f'Điểm tính ({x0}, {y0})')
 
 #vector từ trường B
-b_magnitude_value = np.linalg.norm(total)
-if b_magnitude_value > 0:
-    scale_factor = r * 0.3 / b_magnitude_value #phóng to vector B cho dễ nhìn
-    b_scaled = total * scale_factor
+if b_magnitude > 0:
+    b_scaled = total * (r * 0.3 / b_magnitude) #phóng to vector B cho dễ nhìn
 else:
     b_scaled = total
 #mũi tên B
