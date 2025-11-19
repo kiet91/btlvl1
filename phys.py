@@ -1,5 +1,3 @@
-#tui chỉ thay đổi giao diện cho nó đẹp với sửa lại cái array, còn lại phần công thức k sửa gì hết tại sợ k hiểu :^)
-
 import turtle
 import math
 import numpy as np
@@ -9,7 +7,6 @@ from tkinter import ttk
 from mpl_toolkits.mplot3d import art3d
 
 def format_scientific(value):
-    #cướp trên stackoverflow
     if value == 0:
         return "0"
     exponent = int(math.floor(math.log10(abs(value))))
@@ -86,7 +83,7 @@ def biot_savart(x_point, y_point, radius, I, scale):
 
         vr_norm = np.linalg.norm(vr)
         if vr_norm > 0:
-            db = I * (10**-7) * np.cross(dl, vr) / (vr_norm**3) #tính b?
+            db = I * (10**-7) * np.cross(dl, vr) / (vr_norm**3) #tính b
             total += db
     
     return total
@@ -197,7 +194,6 @@ for i in range(-3, 4):
         value = round(pos * scale, 2)
         turtle.write(f"{value}", align="right", font=("Arial", 8, "normal"))
 
-#vẽ lưới toạ độ (mấy cái vuông vuông á)
 turtle.pencolor("lightgray")
 turtle.pensize(0.5)
 for i in range(-3, 4):
@@ -422,15 +418,12 @@ for i in goc_mt:
               dx, dy, 0,
               color='red', arrow_length_ratio=0.3, linewidth=2.5) #vẽ mũi tên
 
-#bỏ comment nếu muốn ghi chú I trên đồ thị
-# ax.text(r * 1.1, 0, 0, 'I', fontsize=14, color='red', fontweight='bold')
-
 #(xo, yo) điểm cần tính
 ax.scatter([x0], [y0], [0], color='red', s=100, label=f'Điểm tính ({x0}, {y0})')
 
 #vector từ trường B
 if b_magnitude > 0:
-    b_scaled = total * (r * 0.3 / b_magnitude) #phóng to vector B cho dễ nhìn
+    b_scaled = total * (r * 0.3 / b_magnitude) #phóng to vector B cho dễ nhìn nếu B quá nhỏ
 else:
     b_scaled = total
 #mũi tên B
@@ -452,7 +445,6 @@ ax.set_zlim([-max_range/2, max_range/2])
 
 #kết quả dưới đồ thị
 textstr = f'Tọa độ: ({x0}, {y0})\n|B| = {b_mag_str} T\nChiều I: ngược chiều kim đồng hồ'
-# props = dict(boxstyle='round', facecolor='wheat', alpha=0.8)
 ax.text2D(0.05, 0.95, textstr, transform=ax.transAxes, fontsize=10,
         verticalalignment='top', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
 
