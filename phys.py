@@ -1,5 +1,3 @@
-#tui chỉ thay đổi giao diện cho nó đẹp với sửa lại cái array, còn lại phần công thức k sửa gì hết tại sợ k hiểu :^)
-
 import turtle
 import math
 import numpy as np
@@ -9,7 +7,6 @@ from tkinter import ttk
 # from mpl_toolkits.mplot3d import art3d
 
 def format_scientific(value):
-    #cướp trên stackoverflow
     if value == 0:
         return "0"
     exponent = int(math.floor(math.log10(abs(value))))
